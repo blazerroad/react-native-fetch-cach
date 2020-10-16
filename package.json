@@ -1,6 +1,6 @@
 {
-  "name": "react-native-fetch-cach",
-  "version": "1.0.0",
+  "name": "react-native-fetch-cache",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -10,7 +10,7 @@
     "type": "git",
     "url": "git+https://github.com/blazerroad/react-native-fetch-cach.git"
   },
-  "author": "",
+  "author": "blazerroad",
   "license": "ISC",
   "bugs": {
     "url": "https://github.com/blazerroad/react-native-fetch-cach/issues"

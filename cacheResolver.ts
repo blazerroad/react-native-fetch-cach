@@ -31,9 +31,9 @@ class CacheManager {
         const expAfter = expireAfter ? expireAfter : this.expireAfter;
         let matchKeyIndex = this.keys.findIndex(t => t.stateName === stateName);
         if (matchKeyIndex != -1) {
-            return this.keys[matchKeyIndex].ExpireDateTime > (new Date()).getTime() + expAfter;
+            return this.keys[matchKeyIndex].ExpireDateTime <= (new Date()).getTime() + expAfter;
         }
-        this.keys.push(new CacheManagerKeyModel(expAfter, stateName));
+        this.keys.push(new CacheManagerKeyModel((new Date()).getTime() + expAfter, stateName));
         return false;
     }
 
@@ -50,7 +50,7 @@ class CacheManager {
 }
 
 
-export const cache = (stateName: string, expireAfter: number) => {
+export const cache = (stateName: string, expireAfter: number = Number.MAX_VALUE) => {
     let instance = CacheManager.getInstance(expireAfter);
     return instance.isValid(stateName, expireAfter);
 }
